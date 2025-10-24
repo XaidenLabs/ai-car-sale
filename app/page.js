@@ -19,24 +19,48 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col pt-20">
-      {/* Hero Section with Gradient Title */}
-      <section className="relative py-16 md:py-28 dotted-background">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* ========================= */}
+      {/* HERO SECTION WITH GLASS + DARKER GRADIENT + TEXT STROKE */}
+      {/* ========================= */}
+      <section
+        className="relative py-16 md:py-28 overflow-hidden"
+        style={{
+          background:
+            "linear-gradient(135deg, #D8D1CD 0%, #B97C63 25%, #8C2D05 55%, #B14B07 75%, #0D0C0C 100%)",
+        }}
+      >
+        {/* Subtle glassy overlay */}
+        <div className="absolute inset-0 backdrop-blur-[2px] bg-white/5"></div>
+
+        <div className="relative max-w-4xl mx-auto text-center z-10">
           <div className="mb-8">
-            <h1 className="text-5xl md:text-8xl mb-4 gradient-title">
+            <h1
+              className="text-5xl md:text-8xl mb-4 font-extrabold tracking-tight"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 25%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0.1) 100%)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                textShadow:
+                  "0 2px 8px rgba(0,0,0,0.4), 0 0 15px rgba(255,255,255,0.1)",
+              }}
+            >
               Find your Dream Car with Anthridax
             </h1>
-            <p className="text-xl text-gray-500 mb-8 max-w-2xl mx-auto">
+
+            <p className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto backdrop-blur-sm bg-black/20 px-4 py-2 rounded-2xl inline-block shadow-md">
               Advanced AI Car Search and test drive from thousands of vehicles.
             </p>
           </div>
 
-          {/* Search Component (Client) */}
+          {/* Search Component */}
           <HomeSearch />
         </div>
       </section>
 
-      {/* Featured Cars */}
+      {/* ===================== */}
+      {/* FEATURED CARS SECTION */}
+      {/* ===================== */}
       <section className="py-12">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
@@ -55,7 +79,9 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Browse by Make */}
+      {/* ================== */}
+      {/* BROWSE BY MAKE */}
+      {/* ================== */}
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
@@ -90,7 +116,9 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
+      {/* ================== */}
+      {/* WHY CHOOSE US */}
+      {/* ================== */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold text-center mb-12">
@@ -130,7 +158,9 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Browse by Body Type */}
+      {/* ================== */}
+      {/* BROWSE BY BODY TYPE */}
+      {/* ================== */}
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
@@ -169,7 +199,9 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* FAQ Section with Accordion */}
+      {/* ================== */}
+      {/* FAQ SECTION */}
+      {/* ================== */}
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold text-center mb-8">
@@ -186,22 +218,53 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 dotted-background text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">
+      {/* ================== */}
+      {/* CALL TO ACTION (Enhanced) */}
+      {/* ================== */}
+      <section
+        className="relative py-20 overflow-hidden text-white"
+        style={{
+          background:
+            "linear-gradient(135deg, #1A1716 0%, #8C2D05 40%, #B14B07 65%, #D8791F 85%, #F7A94A 100%)",
+        }}
+      >
+        {/* Glassy overlay for depth */}
+        <div className="absolute inset-0 bg-white/5 backdrop-blur-[3px]"></div>
+
+        <div className="relative container mx-auto px-6 text-center z-10">
+          <h2
+            className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 35%, rgba(255,255,255,0.4) 100%)",
+              WebkitBackgroundClip: "text",
+              textShadow:
+                "0 3px 10px rgba(0,0,0,0.5), 0 0 20px rgba(255,255,255,0.15)",
+            }}
+          >
             Ready to Find Your Dream Car?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+
+          <p className="text-lg md:text-xl text-gray-100 mb-10 max-w-2xl mx-auto bg-black/20 backdrop-blur-sm rounded-2xl px-6 py-3 inline-block shadow-md">
             Join thousands of satisfied customers who found their perfect
             vehicle through our platform.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button size="lg" variant="secondary" asChild>
+
+          <div className="flex flex-col sm:flex-row justify-center gap-5">
+            <Button
+              size="lg"
+              asChild
+              className="bg-white text-black font-semibold hover:bg-gray-200 transition-all duration-300 shadow-lg"
+            >
               <Link href="/cars">View All Cars</Link>
             </Button>
+
             <SignedOut>
-              <Button size="lg" asChild>
+              <Button
+                size="lg"
+                asChild
+                className="bg-gradient-to-r from-[#FF5C00] to-[#B14B07] hover:from-[#FF7B1F] hover:to-[#C86412] text-white font-semibold shadow-xl transition-all duration-300"
+              >
                 <Link href="/sign-up">Sign Up Now</Link>
               </Button>
             </SignedOut>

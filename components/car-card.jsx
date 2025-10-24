@@ -100,7 +100,7 @@ export const CarCard = ({ car }) => {
           <h3 className="text-lg font-bold line-clamp-1">
             {car.make} {car.model}
           </h3>
-          <span className="text-xl font-bold text-blue-600">
+          <span className="text-xl font-bold text-blue-600 text-orange-400">
             ₦{car.price.toLocaleString()}
           </span>
         </div>
