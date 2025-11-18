@@ -67,7 +67,7 @@ export async function getCarFilters() {
       },
     };
   } catch (error) {
-    throw new Error("Error fetching car filters:" + error.message);
+    throw new Error("Error fetching car filters:" + (error?.message || ""));
   }
 }
 
@@ -181,7 +181,7 @@ export async function getCars({
       },
     };
   } catch (error) {
-    throw new Error("Error fetching cars:" + error.message);
+    throw new Error("Error fetching cars:" + (error?.message || ""));
   }
 }
 
@@ -255,7 +255,7 @@ export async function toggleSavedCar(carId) {
       message: "Car added to favorites",
     };
   } catch (error) {
-    throw new Error("Error toggling saved car:" + error.message);
+    throw new Error("Error toggling saved car:" + (error?.message || ""));
   }
 }
 
@@ -302,25 +302,27 @@ export async function getCarById(carId) {
     }
 
     // Check if user has already booked a test drive for this car
-    const existingTestDrive = await db.testDriveBooking.findFirst({
-      where: {
-        carId,
-        userId: dbUser.id,
-        status: { in: ["PENDING", "CONFIRMED", "COMPLETED"] },
-      },
-      orderBy: {
-        createdAt: "desc",
-      },
-    });
-
     let userTestDrive = null;
 
-    if (existingTestDrive) {
-      userTestDrive = {
-        id: existingTestDrive.id,
-        status: existingTestDrive.status,
-        bookingDate: existingTestDrive.bookingDate.toISOString(),
-      };
+    if (dbUser) {
+      const existingTestDrive = await db.testDriveBooking.findFirst({
+        where: {
+          carId,
+          userId: dbUser.id,
+          status: { in: ["PENDING", "CONFIRMED", "COMPLETED"] },
+        },
+        orderBy: {
+          createdAt: "desc",
+        },
+      });
+
+      if (existingTestDrive) {
+        userTestDrive = {
+          id: existingTestDrive.id,
+          status: existingTestDrive.status,
+          bookingDate: existingTestDrive.bookingDate.toISOString(),
+        };
+      }
     }
 
     // Get dealership info for test drive availability
@@ -352,7 +354,7 @@ export async function getCarById(carId) {
       },
     };
   } catch (error) {
-    throw new Error("Error fetching car details:" + error.message);
+    throw new Error("Error fetching car details:" + (error?.message || ""));
   }
 }
 
@@ -401,7 +403,7 @@ export async function getSavedCars() {
     console.error("Error fetching saved cars:", error);
     return {
       success: false,
-      error: error.message,
+      error: error?.message || "Error fetching saved cars",
     };
   }
 }
