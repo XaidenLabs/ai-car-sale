@@ -15,15 +15,15 @@ const Header = async ({ isAdminPage = false }) => {
       className="px-10 fixed top-0 w-full z-50 border-b border-orange-600/20 shadow-lg backdrop-blur-md"
       style={{
         background:
-          "linear-gradient(135deg, rgba(20,19,17,0.9) 0%, rgba(138,48,5,0.85) 40%, rgba(0,0,0,0.9) 100%)",
+          "white",
       }}
     >
       <nav className="mx-auto px-4 py-4 flex items-center justify-between">
         <Link href={isAdminPage ? '/admin' : '/'} className="flex items-center gap-2">
           <Image
             src={"/mainlogo.png"}
-            alt="Vehiql Logo"
-            width={200}
+            alt="Logo"
+            width={250}
             height={60}
             className="h-12 w-auto object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]"
           />
@@ -89,7 +89,7 @@ const Header = async ({ isAdminPage = false }) => {
               <SignInButton forceRedirectUrl="/">
                 <Button
                   variant="outline"
-                  className="border-orange-600/40 text-orange-100 hover:bg-orange-700/20 hover:border-orange-500 transition-all"
+                  className="border-black text-black hover:bg-orange-700/20 hover:border-orange-500 transition-all"
                 >
                   Login
                 </Button>

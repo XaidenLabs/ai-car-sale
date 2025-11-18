@@ -45,7 +45,7 @@ export default async function Home() {
                   "0 2px 8px rgba(0,0,0,0.4), 0 0 15px rgba(255,255,255,0.1)",
               }}
             >
-              Find your Dream Car with Anthridax
+              Find your Dream Car with Antridax
             </h1>
 
             <p className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto backdrop-blur-sm bg-black/20 px-4 py-2 rounded-2xl inline-block shadow-md">
